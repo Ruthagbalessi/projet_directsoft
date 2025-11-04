@@ -1,5 +1,6 @@
 <?php
  include 'config.php'; 
+ $design_settings = getDesignSettings();
 
 // apply-design.php
 function getDesignSettings() {
@@ -29,7 +30,7 @@ function getDesignSettings() {
     }
 }
 
-$design_settings = getDesignSettings();
+
 ?>
 
 
