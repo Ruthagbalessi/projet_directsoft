@@ -1,0 +1,422 @@
+<?php
+ include 'config.php'; 
+
+// apply-design.php
+function getDesignSettings() {
+    $servername = "localhost";
+    $username = "root"; // à changer si besoin
+    $password = "";     // à changer si besoin
+    $dbname = "designdirectsoft"; // ta base
+
+    try {
+        $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // ✅ Récupérer les paramètres de design
+        $stmt = $pdo->query("SELECT nom_parametre, valeur_parametre FROM design_site");
+        $settings = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+
+        return $settings;
+    } catch (PDOException $e) {
+        // Valeurs par défaut si la BDD échoue
+        return [
+            'couleur_principale' => '#007bff',
+            'couleur_secondaire' => '#6c757d',
+            'couleur_texte' => '#333333',
+            'couleur_fond' => '#ffffff',
+            'police_principale' => 'Poppins, sans-serif'
+        ];
+    }
+}
+
+$design_settings = getDesignSettings();
+?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <title>Directsoft - Société Informatique</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS Personnalisé -->
+  <link rel="stylesheet" href="assets/css/accueil.css">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i> info@groupe-directsoft.com</li>
+            <li><i class="fa fa-map"></i>25 BP 202 Cidex Abidjan 25</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="accueil.html" class="logo">
+                        <h1>Directsoft</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="accueil.html" class="active">Accueil</a></li>
+                      <li><a href="nosolution.html">Nos Solutions</a></li>
+                      <li><a href="presentation.html">Présentation</a></li>
+                      <li><a href="formation1.html">Formation</a></li>
+                      <li><a href="assistance.html">Assistance</a></li>
+                      <li><a href="services.html">Services</a></li>
+                      <li><a href="contact.php">Contact</a></li>
+                      <li><a href="navigation-principale.php"><i class="fa fa-user"></i> Profil</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner">
+    <div class="owl-carousel owl-banner">
+      <div class="item item-1">
+        <div class="header-text">
+          <span class="category">Cocody, <em>Côte d'Ivoire</em></span>
+          <h2><br>"Boostez votre activité avec une solution durable et évolutive.</h2>
+        </div>
+      </div>
+      <div class="item item-2">
+        <div class="header-text">
+          <span class="category">Lagos, <em>Nigeria</em></span>
+          <h2><br>Optimisez vos ventes avec notre solution de gestion commerciale.</h2>
+        </div>
+      </div>
+      <div class="item item-3">
+        <div class="header-text">
+          <span class="category">Douala, <em>Cameroun</em></span>
+          <h2><br>Des logiciels intelligents pour une gestion simplifiée.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured section">
+    <div class="container">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Nos solutions logicielles
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="tm-main">
+              <!-- Accueil section -->
+              <div class="tm-section-wrap">
+                <section id="Accueil" class="tm-section">
+                  <h2 class="tm-text-primary">Bienvenue chez Directsoft</h2>
+                  <hr class="mb-5">
+      
+                  <div class="row mb-5">
+                    <div class="col-lg-12 text-center">
+                      <h3 class="tm-text-primary mb-4">Boostez votre activité avec une solution durable et évolutive.</h3>
+                    </div>
+                  </div>
+      
+                  <div class="row mb-5">
+                    <div class="col-lg-4 mb-4 text-center">
+                      <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                      <h4 class="tm-text-primary">Services en ligne</h4>
+                    </div>
+                    <div class="col-lg-4 mb-4 text-center">
+                      <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                      <h4 class="tm-text-primary">Sécurité</h4>
+                    </div>
+                    <div class="col-lg-4 mb-4 text-center">
+                      <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                      <h4 class="tm-text-primary">Maintenance</h4>
+                    </div>
+                  </div>
+      
+                  <div class="row mb-5">
+                    <div class="col-lg-12 text-center">
+                      <h3 class="tm-text-primary mb-4">ERP DIMS</h3>
+                      <p class="lead mb-4">La solution de gestion intégrée qui vous permet d'avoir une vue d'ensemble en temps réel sur toute votre activité.</p>
+                    </div>
+                  </div>
+      
+                  <!-- ERP DIMS Visual -->
+                  <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="erp-visual-container text-center">
+                            <div class="erp-network">
+                                <!-- Central ERP Module -->
+                                  <div class="erp-central">
+                                    <div class="erp-logo">
+                                        <i class="fas fa-cogs"></i>
+                                        <i class="fas fa-bullhorn"></i>
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                  <div class="erp-label">ERP</div>
+                            </div>
+                                
+                                                                           <!-- Connected Modules -->
+                                 <div class="erp-module erp-module-1">
+                                     <i class="fas fa-file-alt"></i>
+                                     <span>Rapports</span>
+                                 </div>
+                                 <div class="erp-module erp-module-2">
+                                     <i class="fas fa-users"></i>
+                                     <span>RH</span>
+                                 </div>
+                                 <div class="erp-module erp-module-3">
+                                     <i class="fas fa-chart-pie"></i>
+                                     <span>Analytics</span>
+                                 </div>
+                                 <div class="erp-module erp-module-4">
+                                     <i class="fas fa-calendar-alt"></i>
+                                     <span>Planning</span>
+                                 </div>
+                                 <div class="erp-module erp-module-5">
+                                     <i class="fas fa-eye"></i>
+                                     <span>Monitoring</span>
+                                 </div>
+                                 <div class="erp-module erp-module-6">
+                                     <i class="fas fa-file-invoice"></i>
+                                     <span>Finance</span>
+                                 </div>
+                                 <div class="erp-module erp-module-7">
+                                     <i class="fas fa-chart-line"></i>
+                                     <span>Business Intelligence</span>
+                                 </div>
+                                
+                                                                           <!-- Connection Lines -->
+                                 <svg class="erp-connections" viewBox="0 0 400 300">
+                                     <defs>
+                                         <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                             <stop offset="0%" style="stop-color:#007bff;stop-opacity:0.3" />
+                                             <stop offset="50%" style="stop-color:#007bff;stop-opacity:0.8" />
+                                             <stop offset="100%" style="stop-color:#007bff;stop-opacity:0.3" />
+                                         </linearGradient>
+                                     </defs>
+                                     <line x1="200" y1="150" x2="340" y2="60" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="320" y2="120" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="320" y2="180" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="80" y2="180" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="80" y2="120" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="60" y2="60" stroke="url(#lineGradient)" stroke-width="2"/>
+                                     <line x1="200" y1="150" x2="160" y2="240" stroke="url(#lineGradient)" stroke-width="2"/>
+                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                  <!-- Carte 1 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-11.jpg" alt="Icône AGROMEX" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">AGROMEX</h4>
+                      <p>Logiciel de gestion des produits agro-industriels</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 2 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-12.jpg" alt="Icône AGRICE" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">AGRICE</h4>
+                      <p>Gestion des coopératives agricoles et traçabilité</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 3 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-06.jpg" alt="Icône COMPTA" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">SOFT-COMPTA</h4>
+                      <p>Comptabilité générale et analytique</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 4 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-07.jpg" alt="Icône REEL" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">REEL</h4>
+                      <p>Gestion des écoles et suivi des emplois du temps</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 5 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-02.jpg" alt="Icône pesage" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">XPESAGE</h4>
+                      <p>Logiciel de suivi de pesage</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 6 -->
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-05.jpg" alt="Icône GESCOM" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">GESCOM</h4>
+                      <p>Logiciel de gestion commerciale</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                
+                  <!-- Carte 7 -->
+                  <div class="col-lg-4 col-md-6 mb-4 mx-auto">
+                    <div class="card shadow-sm h-100 text-center p-3">
+                      <img src="assets/images/icon-13.jpg" alt="Icône MANAGER RH" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
+                      <h4 class="tm-text-primary">MANAGER RH</h4>
+                      <p>Logiciel de paie et de gestion RH</p>
+                      <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-right mt-4">
+                  <a href="nosolution.html" class="btn btn-primary tm-btn-next">Découvrez nos solutions</a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+  
+        <!-- Côte d'Ivoire -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-3">CÔTE D'IVOIRE</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i>Abidjan</li>
+            <li><i class="fas fa-phone me-2"></i>+225 05 06 80 80 85</li>
+            <li><i class="fas fa-phone me-2"></i>+225 27 22 43 87 90</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>San Pedro</li>
+            <li><i class="fas fa-phone me-2"></i>+225 27 34 71 06 58</li>
+            <li><i class="fas fa-envelope me-2"></i>contact@groupe-directsoft.com</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>25 BP 202 Cidex Abidjan 25</li>
+          </ul>
+        </div>
+  
+        <!-- Nigeria -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-3">NIGERIA</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i>48 km from Lagos, Block 6 House 4 Estate</li>
+            <li><i class="fas fa-phone me-2"></i>+234 816 078 5808</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>Ogun State</li>
+            <li><i class="fas fa-envelope me-2"></i>contact@groupe-directsoft.com</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>13 RCCG CAMP Ogun</li>
+          </ul>
+        </div>
+  
+        <!-- Cameroun -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-3">CAMEROUN</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i>Douala</li>
+            <li><i class="fas fa-phone me-2"></i>+237 69 93 85 473</li>
+            <li><i class="fas fa-phone me-2"></i>+237 23 34 70 751</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>Kribi</li>
+            <li><i class="fas fa-phone me-2"></i>+237 67 54 07 086</li>
+            <li><i class="fas fa-envelope me-2"></i>contact@groupe-directsoft.com</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>BP 6627 Douala</li>
+          </ul>
+        </div>
+  
+      </div>
+  
+      <hr class="border-light">
+  
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p class="mb-0">
+            &copy; 1998-2023 Groupe DIRECTSOFT. Tous droits réservés.
+            Design : <a href="https://www.groupe-directsoft.com" class="text-light" target="_blank">Ruth_anf</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/dynamic-content.js"></script>
+
+  <script>
+    // Menu mobile
+    document.querySelector('.menu-trigger').addEventListener('click', function() {
+      document.querySelector('.nav').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
