@@ -1,0 +1,48 @@
+<?php
+session_start();
+function getDesignSettings(){
+  try{
+    $pdo=new PDO("mysql:host=localhost;dbname=designdirectsoft;charset=utf8","root","");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    return $pdo->query("SELECT nom_parametre, valeur_parametre FROM design_site")->fetchAll(PDO::FETCH_KEY_PAIR);
+  }catch(PDOException $e){return [];} }
+function ds($k,$d,$s){return isset($s[$k])&&$s[$k]!==''?$s[$k]:$d;} $s=getDesignSettings();
+?>
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGROMEX - Directsoft</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="header-area header-sticky"><div class="container"><div class="row"><div class="col-12">
+    <nav class="main-nav">
+      <a href="/accueil.php" class="logo"><h1><?= htmlspecialchars(ds('logo_text','Directsoft',$s)) ?></h1></a>
+      <ul class="nav">
+        <li><a href="/accueil.php">Accueil</a></li>
+        <li><a href="/nosolution.html">Nos Solutions</a></li>
+        <li><a href="/presentation.html">Présentation</a></li>
+        <li><a href="/formation1.html">Formation</a></li>
+        <li><a href="/assistance.html">Assistance</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/contact.php">Contact</a></li>
+        <li><a href="/navigation-principale.php"><i class="fa fa-user"></i> Profil</a></li>
+      </ul>
+      <a class='menu-trigger'><span>Menu</span></a>
+    </nav>
+  </div></div></div></header>
+  <section class="section"><div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="tm-text-primary"><?= htmlspecialchars(ds('card1_title','AGROMEX',$s)) ?></h2>
+        <p><?= htmlspecialchars(ds('card1_desc','Logiciel de gestion des produits agro-industriels',$s)) ?></p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img class="img-fluid" style="max-width:350px" src="<?= htmlspecialchars(ds('card1_image','/assets/images/icon-11.jpg',$s)) ?>" alt="AGROMEX">
+      </div>
+    </div>
+  </div></section>
+  <footer class="bg-dark text-white pt-5 pb-4"><div class="container"><div class="row"><div class="col-lg-12 text-center">&copy; Groupe DIRECTSOFT</div></div></div></footer>
+  
+</body></html>
