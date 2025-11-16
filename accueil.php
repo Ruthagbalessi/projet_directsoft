@@ -321,7 +321,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card1_image','assets/images/icon-11.jpg',$settings)) ?>" alt="Icône AGROMEX" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card1_title','AGROMEX',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card1_desc','Logiciel de gestion des produits agro-industriels',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/agromex.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -331,7 +331,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card2_image','assets/images/icon-12.jpg',$settings)) ?>" alt="Icône AGRICE" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card2_title','AGRICE',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card2_desc','Gestion des coopératives agricoles et traçabilité',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/agrice.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -341,7 +341,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card3_image','assets/images/icon-06.jpg',$settings)) ?>" alt="Icône COMPTA" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card3_title','SOFT-COMPTA',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card3_desc','Comptabilité générale et analytique',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/soft-compta.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -351,7 +351,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card4_image','assets/images/icon-07.jpg',$settings)) ?>" alt="Icône REEL" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card4_title','REEL',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card4_desc','Gestion des écoles et suivi des emplois du temps',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/reel.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -361,7 +361,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card5_image','assets/images/icon-02.jpg',$settings)) ?>" alt="Icône pesage" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card5_title','XPESAGE',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card5_desc','Logiciel de suivi de pesage',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/xpesage.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -371,7 +371,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card6_image','assets/images/icon-05.jpg',$settings)) ?>" alt="Icône GESCOM" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card6_title','GESCOM',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card6_desc','Logiciel de gestion commerciale',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/gescom.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
 
@@ -381,7 +381,7 @@ function ds($key, $default, $settings) {
                         <img src="<?= htmlspecialchars(ds('card7_image','assets/images/icon-13.jpg',$settings)) ?>" alt="Icône MANAGER RH" class="mx-auto mb-3 img-fluid" style="max-width: 250px; height: auto;">
                         <h4 class="tm-text-primary"><?= htmlspecialchars(ds('card7_title','MANAGER RH',$settings)) ?></h4>
                         <p><?= htmlspecialchars(ds('card7_desc','Logiciel de paie et de gestion RH',$settings)) ?></p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Savoir plus</a>
+                        <a href="solutions/manager-rh.php" class="btn btn-outline-primary mt-2">Savoir plus</a>
                       </div>
                     </div>
                   </div>
